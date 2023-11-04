@@ -1,1 +1,2 @@
-# bookstore-be-express
+# API built in NodeJS - Express
+

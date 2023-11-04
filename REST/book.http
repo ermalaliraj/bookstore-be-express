@@ -1,0 +1,43 @@
+### 
+GET http://localhost:5000/books
+
+### 
+GET http://localhost:5000/books/65466b53cdd44cc3ebd86cf0
+
+### 
+POST http://localhost:5000/books
+Content-Type: application/json
+
+{
+    "title": "Crime and Punishment2",
+    "author": "Fëdor Dostoevskij1",
+    "price": 90.12,
+    "stockQuantity": 10
+}
+
+### 
+PUT http://localhost:5000/books/6546705a5b4d100ff0778333
+Content-Type: application/json
+Authorization: Bearer 
+
+{
+    "title": "Crime and Punishment - 2",
+    "author": "Fëdor Dostoevskij - 2",
+    "price": 11.12,
+    "stockQuantity": 20
+}
+
+### 
+DELETE http://localhost:5000/books/6546705a5b4d100ff0778333
+
+################  BUY a BOOK ################
+
+### 
+POST http://localhost:5000/transactions
+Content-Type: application/json
+
+{
+    "bookId": "6546705a5b4d100ff0778333"
+}
+
+###
