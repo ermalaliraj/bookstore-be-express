@@ -1,10 +1,12 @@
 # API built in NodeJS - Express
 
-### Run the code
+### Install and run the app
     npm install
-
-### Execute the App
-    npm start                        =>  will run the server in local on port 5000
+    npm start
+    
+Use REST calls present in [book.http](./REST/book.http)
+    
+### Other scripts
     npm run test-unit-book           =>  will run unit tests of service Book
     npm run test-unit-transaction    =>  will run unit tests of service Transaction
     npm run test-unit-all            =>  will run enter test suite
@@ -21,11 +23,6 @@ For testing purpose you can use the already present MongoDB url
 
     MONGO_URI=mongodb+srv://devx:kr45Fz8gFNp8vEPg@dev.mioms8o.mongodb.net/bookstore
     
-### Test the App
-
-1. ```npm start```
-2. Use REST calls present in [book.http](./REST/book.http)
-
 ### DB model
 
 ![DB Model](./doc/DB_model.JPG)
