@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const transactionSchema = new Schema({
     bookId: {
       type: Schema.Types.ObjectId,
       ref: 'Book',
@@ -29,4 +29,4 @@ const userSchema = new Schema({
   {timestamps: true}
 )
 
-module.exports = mongoose.model('Transaction', userSchema);
+module.exports = mongoose.model('Transaction', transactionSchema)

@@ -1,6 +1,6 @@
 const GenericError = require("./GenericError");
 
-class BoolAlreadyExistsError extends GenericError {
+class BookAlreadyExistsError extends GenericError {
   constructor(message) {
     super();
     this.message = message;
@@ -11,4 +11,4 @@ class BoolAlreadyExistsError extends GenericError {
   }
 }
 
-module.exports = BoolAlreadyExistsError;
+module.exports = BookAlreadyExistsError;

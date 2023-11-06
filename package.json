@@ -4,7 +4,14 @@
   "description": "Backend API used for bookstore.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "test-unit-book": "mocha ./test/service/bookService-test",
+    "test-unit-transaction": "mocha ./test/service/transactionService-test",
+    "test-unit-all": "mocha ./test/service",
+    "test-integration-book": "mocha ./test/controller/bookController-test",
+    "test-integration-transaction": "mocha ./test/controller/transactionController-test",
+    "test-integration-all": "mocha ./test/controller",
+    "test-all": "mocha ./test/**/*.js"
   },
   "mocha": {
     "timeout": "20000"
@@ -39,6 +46,7 @@
     "multer-s3": "^2.10.0",
     "n-custom-errors": "^4.0.0",
     "n-params-processor": "^6.0.0",
+    "nock": "^13.3.8",
     "phpass": "^0.1.1",
     "rewire": "^6.0.0",
     "swagger-jsdoc": "^6.2.8",

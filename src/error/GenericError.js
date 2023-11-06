@@ -2,6 +2,7 @@ class GenericError extends Error {
   static GENERIC_APPLICATION_ERROR = 0;
   static COULD_NOT_FIND_BOOK = 1;
   static BOOK_ALREADY_EXISTS = 1;
+  static NOT_ENOUGH_STOCK = 2
 
   constructor() {
     super();

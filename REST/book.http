@@ -37,7 +37,8 @@ POST http://localhost:5000/transactions
 Content-Type: application/json
 
 {
-    "bookId": "6546705a5b4d100ff0778333"
+    "bookId": "6548cb9d5a5111ab45310ce1",
+    "quantity": 1
 }
 
 ###

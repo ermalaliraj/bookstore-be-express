@@ -1,31 +1,30 @@
 const Book = require('../models/book')
-const BookAlreadyExistsError = require('../error/BookAlreadyExistsError')
 const CouldNotFindBook = require('../error/CouldNotFindBook')
 const logger = require('../utils/logger')
 
 exports.getAllBooks = async (data) => {
   let filter = {}
-  if (data.id || data.title || data.author || data.price || data.stockQuantity) {
+  if (data._id || data.title || data.author || data.price || data.stockQuantity) {
     filter.$and = []
   }
   if (data._id) {
-    filter.$and.push({_id: data._id})
+    filter.$and.push({ _id: data._id })
   }
-  if (data.id) {
-    filter.$and.push({title: data.title})
+  if (data.title) {
+    filter.$and.push({ title: data.title })
   }
-  if (data.rank) {
-    filter.$and.push({author: data.author})
+  if (data.author) {
+    filter.$and.push({ author: data.author })
   }
   if (data.price) {
-    filter.$and.push({author: data.price})
+    filter.$and.push({ price: data.price })
   }
   if (data.stockQuantity) {
-    filter.$and.push({user: data.stockQuantity})
+    filter.$and.push({ user: data.stockQuantity })
   }
-
-  let query = Book.find(filter)
-  let books = query.exec()
+  logger.info('Finding all books by filter:', filter)
+  let books = await Book.find({ filter })
+  //logger.info('Books in service:', JSON.stringify(books))
   return books
 }
 
@@ -49,29 +48,27 @@ exports.createBook = async (data) => {
     price: data.price,
     stockQuantity: data.stockQuantity
   }
-  newObject = await Book.create(newObject)
-  newObject = await newObject.save();
-  logger.debug("Created successfully the Book: ", newObject);
-  return newObject
+  let book = await Book.create(newObject)
+  logger.debug("Created successfully the Book: ", JSON.stringify(book))
+  return book
 }
 
-exports.updateBook = async ({bookId, data}) => {
-  logger.info(`cartId= ${bookId} , data=${JSON.stringify(data)}`)
+exports.updateBook = async ({ bookId, data }) => {
+  logger.info(`bookId= ${bookId} , data=${JSON.stringify(data)}`)
   let book = await Book.findById(bookId)
-  if (book.title) {
+  if (data.title) {
     book.title = data.title
   }
-  if (book.author) {
+  if (data.author) {
     book.author = data.author
   }
-  if (book.price) {
+  if (data.price) {
     book.price = data.price
   }
-  if (book.stockQuantity) {
+  if (data.stockQuantity) {
     book.stockQuantity = data.stockQuantity
   }
-  book = await book.save()
-  return book
+  return await book.save()
 }
 
 exports.deleteBookById = async (bookId) => {

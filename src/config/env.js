@@ -12,7 +12,7 @@ const setupEnv = () => {
   }
 
   try {
-    envFile = path.resolve(__dirname + "/../", envFile)
+    envFile = path.resolve(__dirname + "/../../", envFile)
     logger.info(`Using config file '${envFile}'`)
     const vars = dotenv.config({path: envFile})
     logger.info("Variables: ", vars.parsed)
